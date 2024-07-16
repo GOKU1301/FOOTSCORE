@@ -39,11 +39,29 @@ app.set('view engine', 'ejs');
 
 // Routes
 // Index route
+function formatDate(date) {
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }
+  
+  // Helper function to add days to a date
+  function addDays(date, days) {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
 app.get('/', async (req, res) => {
   try {
+    const today = new Date();
+    const dateFrom = formatDate(today);  // Today's date
+    const dateTo = formatDate(addDays(today, 3));
+    console.log(dateFrom);
+    console.log(dateTo);
     const apiResponse = await axios.get(`${apiBaseURL}/matches`, {
       headers: { 'X-Auth-Token': apiKey },
-      params: { dateFrom: '2024-07-15', dateTo: '2024-07-22' }, // Adjust dates as needed
+      params: { dateFrom: dateFrom, dateTo: dateTo }, // Adjust dates as needed
     });
     const matches = apiResponse.data.matches;
     res.render('index', { title: 'Football Portal', matches });
