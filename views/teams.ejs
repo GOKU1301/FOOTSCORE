@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <h1>Teams</h1>
+    <div class="teams">
+        <% teams.forEach(team => { %>
+            <div class="team">
+                <img src="<%= team.crestUrl %>" alt="<%= team.name %>">
+                <h3><%= team.name %></h3>
+                <p>Founded: <%= team.founded %></p>
+                <p>Venue: <%= team.venue %></p>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>

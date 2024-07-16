@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+</head>
+<body>
+    <h1>Upcoming Matches</h1>
+    <div class="matches">
+        <% matches.forEach(match => { %>
+            <div class="match">
+                <div class="match-info">
+                    <h3><%= match.homeTeam.name %> vs <%= match.awayTeam.name %></h3>
+                    <p>Date: <%= new Date(match.utcDate).toLocaleDateString() %></p>
+                    <p>Area: <%= match.area.name %></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</body>
+</html>

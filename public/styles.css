@@ -1,0 +1,77 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-top: 20px;
+}
+
+.matches, .teams, .players {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.match, .team, .player {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 15px;
+  padding: 20px;
+  width: 260px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.match:hover, .team:hover, .player:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.match-info, .team-info, .player-info {
+  text-align: left;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  color: #34495e;
+}
+
+p {
+  color: #7f8c8d;
+}
+
+.match-info p, .team-info p, .player-info p {
+  margin: 5px 0;
+}
+
+.match h3, .team h3, .player h3 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.match-info .team-names {
+  font-weight: bold;
+  color: #2980b9;
+}
+
+.footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
