@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1><%= title %></h1>
+    <div>
+        <% if (matches && matches.length > 0) { %>
+            <% matches.forEach(match => { %>
+                <div class="match">
+                    <h3><%= match.homeTeam.name %> vs <%= match.awayTeam.name %></h3>
+                    <p>Date: <%= new Date(match.utcDate).toLocaleDateString() %></p>
+                    <p>Score: <%= match.score.fullTime.homeTeam %> - <%= match.score.fullTime.awayTeam %></p>
+                    <p>Area: <%= match.area.name %></p>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No matches found.</p>
+        <% } %>
+    </div>
+</body>
+</html>

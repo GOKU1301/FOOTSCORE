@@ -1,20 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Players</h1>
-    <div class="players">
-        <% players.forEach(player => { %>
-            <div class="player">
-                <h3><%= player.name %></h3>
-                <p>Position: <%= player.position %></p>
-                <p>Nationality: <%= player.nationality %></p>
-                <p>Team: <%= player.team.name %></p>
-            </div>
-        <% }); %>
+    <h1><%= title %></h1>
+    <div>
+        <% if (players && players.length > 0) { %>
+            <% players.forEach(player => { %>
+                <div class="player">
+                    <h3><%= player.name %></h3>
+                    <p>Position: <%= player.position %></p>
+                    <p>Date of Birth: <%= player.date_of_birth %></p>
+                    <p>Nationality: <%= player.nationality %></p>
+                    <p>Team: <%= player.teamName %></p>
+                    <% if (user) { %>
+                        <form action="/favourites" method="post">
+                            <input type="hidden" name="playerId" value="<%= player.id %>">
+                            <button type="submit">Add to Favorites</button>
+                        </form>
+                    <% } %>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>No players found.</p>
+        <% } %>
     </div>
 </body>
 </html>

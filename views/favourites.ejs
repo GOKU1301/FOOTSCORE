@@ -1,0 +1,29 @@
+<!-- favourites.ejs -->
+
+<h1>Favourites</h1>
+
+<h2>Favourite Teams</h2>
+<ul>
+  <% favouriteTeams.forEach(team => { %>
+    <li>
+      <%= team.name %>
+      <form action="/favourites/remove" method="post">
+        <input type="hidden" name="teamId" value="<%= team.id %>">
+        <button type="submit">Remove from Favourites</button>
+      </form>
+    </li>
+  <% }); %>
+</ul>
+
+<h2>Favourite Players</h2>
+<ul>
+  <% favouritePlayers.forEach(player => { %>
+    <li>
+      <%= player.name %>
+      <form action="/favourites/remove" method="post">
+        <input type="hidden" name="playerId" value="<%= player.id %>">
+        <button type="submit">Remove from Favourites</button>
+      </form>
+    </li>
+  <% }); %>
+</ul>

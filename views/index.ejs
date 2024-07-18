@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <h1>Upcoming Matches</h1>
-    <div class="matches">
-        <% matches.forEach(match => { %>
-            <div class="match">
-                <div class="match-info">
-                    <h3><%= match.homeTeam.name %> vs <%= match.awayTeam.name %></h3>
-                    <p>Date: <%= new Date(match.utcDate).toLocaleDateString() %></p>
-                    <p>Area: <%= match.area.name %></p>
-                </div>
-            </div>
-        <% }); %>
-    </div>
+    <h1>Welcome to the Football Portal</h1>
+    <nav>
+        <a href="/login">Login</a> | <a href="/register">Register</a> | 
+        <a href="/matches">Matches</a> | <a href="/teams">Teams</a> | <a href="/players">Players</a>
+    </nav>
 </body>
 </html>
